@@ -7,5 +7,10 @@ module.exports = {
     es2022: true,
     browser: true
   },
-  extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"]
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    "plugin:storybook/recommended"
+  ]
 };
