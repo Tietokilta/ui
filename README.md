@@ -34,7 +34,7 @@ const App = () => (
 );
 ```
 
-## Developing TiKUI
+## Developing TiKUI!
 
 Recommended VSCode settings:
 
