@@ -1,0 +1,22 @@
+name: Pull Request
+
+on:
+  pull_request:
+
+jobs:
+  tikui:
+    name: Lint and test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup project
+        uses: ./.github/actions/setup
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Test
+        run: pnpm test
