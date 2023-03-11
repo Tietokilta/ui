@@ -21,7 +21,8 @@
   "dependencies": {
     "class-variance-authority": "^0.6.0",
     "clsx": "^1.2.1",
-    "tailwind-merge": "^1.13.0"
+    "tailwind-merge": "^1.13.0",
+    "@radix-ui/react-tabs": "1.0.3"
   },
   "peerDependencies": {
     "autoprefixer": "^10.4.13",
