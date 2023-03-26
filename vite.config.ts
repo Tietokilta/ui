@@ -7,6 +7,11 @@ import dts from "vite-plugin-dts";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      "~": resolve(__dirname, "./lib")
+    }
+  },
   plugins: [react(), dts()],
   build: {
     lib: {
