@@ -33,3 +33,13 @@ jobs:
           pnpm deploy-storybook
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: Build package
+      #   run: pnpm build
+
+      # - name: Release package
+      #   run: pnpm semantic-release
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      #     HUSKY: 0
