@@ -4,12 +4,7 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    {
-      name: "@storybook/addon-postcss",
-      postcssLoaderOptions: {
-        implementation: require("postcss")
-      }
-    }
+    "@storybook/addon-styling"
   ],
   framework: {
     name: "@storybook/react-vite",
