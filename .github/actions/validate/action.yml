@@ -1,0 +1,16 @@
+name: Validate project
+description: Check, lint and test project
+runs:
+  using: "composite"
+  steps:
+    - name: Check
+      shell: bash
+      run: pnpm check
+
+    - name: Lint
+      shell: bash
+      run: pnpm lint
+
+    - name: Test
+      shell: bash
+      run: pnpm test

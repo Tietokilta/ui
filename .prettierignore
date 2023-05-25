@@ -2,3 +2,4 @@ dist
 storybook-static
 pnpm-lock.yaml
 CHANGELOG.md
+vite.config.ts.timestamp-*

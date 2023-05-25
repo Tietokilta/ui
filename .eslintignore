@@ -1,5 +1,4 @@
 dist
 storybook-static
 pnpm-lock.yaml
-.gitignore
-*.md
+vite.config.ts.timestamp-*
