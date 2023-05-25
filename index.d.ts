@@ -5,5 +5,5 @@ declare const button: (props?: ({
 } & import("class-variance-authority/dist/types").ClassProp) | undefined) => string;
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof button> {
 }
-declare const Button: ({ action, destructive, className, ...props }: ButtonProps) => JSX.Element;
+declare const Button: ({ action, destructive, className, ...props }: ButtonProps) => import("react/jsx-runtime").JSX.Element;
 export default Button;
