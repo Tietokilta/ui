@@ -1,48 +1,56 @@
+import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
+import { cn } from "~/utils";
 
-const button = cva(
-  ["py-2", "px-3", "rounded-sm", "font-semibold", "tracking-wider", "whitespace-nowrap"],
+/**
+ * Adds button styles to any component, for use with Next.js <Link /> components.
+ */
+const buttonVariants = cva(
+  "inline-flex font-mono items-center justify-center rounded-md text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-gray-100",
   {
     variants: {
-      action: {
-        primary: ["text-white", "bg-orange-400"],
-        secondary: ["text-orange-400", "outline", "outline-1", "outline-orange-400"],
-        tertiary: ["text-orange-400"]
+      variant: {
+        default:
+          "border-2 border-gray-900 bg-primary-500 text-primary-900 hover:bg-primary-600/90 shadow-solid",
+        destructive:
+          "border-2 border-gray-900 bg-danger-500 text-danger-100 hover:bg-danger-500/90 shadow-solid",
+        outline:
+          "border-2 border-gray-900 hover:border-gray-800 hover:bg-gray-200/90 hover:text-gray-800",
+        secondary:
+          "border-2 border-gray-900 bg-gray-200 text-gray-800 hover:bg-gray-300/80 shadow-solid",
+        ghost: "hover:bg-gray-100",
+        link: "justify-between border-b-2 border-gray-900 rounded-none text-gray-900 after:content-['>>'] after:ml-2 hover:after:translate-x-2",
+        outlineLink:
+          "border-2 border-gray-900 hover:border-gray-800 hover:bg-gray-200/90 shadow-solid"
       },
-      destructive: {
-        true: ""
+      size: {
+        default: "h-10 py-2 px-4",
+        sm: "h-9 px-3 rounded-md",
+        lg: "h-11 px-8 rounded-md"
       }
     },
-    compoundVariants: [
-      {
-        action: "primary",
-        destructive: true,
-        className: "bg-red-500"
-      },
-      {
-        action: "secondary",
-        destructive: true,
-        className: "text-red-500 outline-none outline-transparent"
-      },
-      {
-        action: "tertiary",
-        destructive: true,
-        className: "text-slate-500"
-      }
-    ],
     defaultVariants: {
-      action: "primary",
-      destructive: false
+      variant: "default",
+      size: "default"
     }
   }
 );
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof button> {}
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
 
-const Button = ({ action, destructive, className, ...props }: ButtonProps) => (
-  <button className={button({ action, destructive, className })} {...props} />
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props} />
+    );
+  }
 );
+Button.displayName = "Button";
 
-export default Button;
+export { Button, buttonVariants };
