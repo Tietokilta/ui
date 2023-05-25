@@ -1,41 +1,55 @@
 import type { Meta, StoryFn } from "@storybook/react";
-import Button from "~/components/Button";
+import { Button } from "~/components/Button";
 
+/**
+ * ```typescript
+ * import { Button } from "@tietokilta/ui";
+ * ```
+ */
 export default {
   title: "Button",
-  component: Button,
-  argTypes: {
-    action: {
-      options: ["primary", "secondary", "tertiary"]
-    },
-    destructive: {
-      control: {
-        type: "boolean"
-      }
-    },
-    children: {
-      name: "text"
-    }
-  }
+  component: Button
 } as Meta<typeof Button>;
 
 const Template: StoryFn<typeof Button> = (args) => <Button {...args} />;
 
-export const Primary = Template.bind({});
-Primary.args = {
-  action: "primary",
-  destructive: false,
-  children: "My Button"
+export const Default = Template.bind({});
+Default.args = {
+  children: "Button"
+};
+
+export const Destructive = Template.bind({});
+Destructive.args = {
+  ...Default.args,
+  variant: "destructive"
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  ...Primary.args,
-  action: "secondary"
+  ...Default.args,
+  variant: "secondary"
 };
 
-export const Tertiary = Template.bind({});
-Tertiary.args = {
-  ...Primary.args,
-  action: "tertiary"
+export const Outline = Template.bind({});
+Outline.args = {
+  ...Default.args,
+  variant: "outline"
+};
+
+export const Ghost = Template.bind({});
+Ghost.args = {
+  ...Default.args,
+  variant: "ghost"
+};
+
+export const Link = Template.bind({});
+Link.args = {
+  ...Default.args,
+  variant: "link"
+};
+
+export const OutlineLink = Template.bind({});
+OutlineLink.args = {
+  ...Default.args,
+  variant: "outlineLink"
 };
