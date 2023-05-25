@@ -1,6 +1,11 @@
+/** @type {import("eslint").ESLint.ConfigData} */
 module.exports = {
   root: true,
   parser: "@typescript-eslint/parser",
+  parserOptions: {
+    project: true,
+    tsconfigRootDir: __dirname
+  },
   plugins: ["@typescript-eslint"],
   env: {
     node: true,
@@ -10,7 +15,9 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "plugin:storybook/recommended"
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/strict",
+    "plugin:storybook/recommended",
+    "prettier"
   ]
 };

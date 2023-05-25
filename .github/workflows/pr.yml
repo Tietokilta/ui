@@ -15,8 +15,5 @@ jobs:
       - name: Setup project
         uses: ./.github/actions/setup
 
-      - name: Lint
-        run: pnpm lint
-
-      - name: Test
-        run: pnpm test
+      - name: Validate project
+        uses: ./.github/actions/validate
