@@ -7,11 +7,12 @@
   "files": [
     "dist"
   ],
-  "main": "dist/ui.umd.cjs",
-  "module": "dist/ui.js",
-  "types": "dist/main.d.ts",
+  "main": "./dist/ui.umd.cjs",
+  "module": "./dist/ui.js",
+  "types": "./dist/main.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/main.d.ts",
       "import": "./dist/ui.js",
       "require": "./dist/ui.umd.cjs"
     }
