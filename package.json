@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "license": "MIT",
   "homepage": "https://tietokilta.github.io/ui/",
+  "author": "Mikael Siidorow <mikael@siidorow.com> (https://siidorow.com)",
   "type": "module",
   "files": [
     "dist"
