@@ -10,10 +10,10 @@
   ],
   "main": "./dist/ui.umd.cjs",
   "module": "./dist/ui.js",
-  "types": "./dist/main.d.ts",
+  "types": "./dist/ui.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/main.d.ts",
+      "types": "./dist/ui.d.ts",
       "import": "./dist/ui.js",
       "require": "./dist/ui.umd.cjs"
     }
@@ -33,7 +33,7 @@
   "scripts": {
     "prepare": "husky install",
     "dev": "storybook dev -p 6006",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && dts-bundle-generator -o ./dist/ui.d.ts ./lib/main.ts",
     "build-storybook": "storybook build && touch ./storybook-static/.nojekyll",
     "deploy-storybook": "gh-pages -d storybook-static -t true",
     "lint": "prettier --check . && eslint .",
@@ -66,6 +66,7 @@
     "@vitejs/plugin-react-swc": "^3.3.2",
     "autoprefixer": "^10.4.14",
     "babel-loader": "^9.1.2",
+    "dts-bundle-generator": "^8.0.1",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-storybook": "^0.6.12",
@@ -83,7 +84,6 @@
     "tailwindcss": "^3.3.2",
     "typescript": "^5.0.4",
     "vite": "^4.3.9",
-    "vite-plugin-dts": "^2.3.0",
     "vitest": "^0.31.4"
   },
   "engines": {
