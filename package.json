@@ -1,16 +1,14 @@
 {
   "name": "@tietokilta/ui",
   "version": "0.0.0-development",
-  "license": "MIT",
   "homepage": "https://tietokilta.github.io/ui/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tietokilta/ui.git"
+  },
+  "license": "MIT",
   "author": "Mikael Siidorow <mikael@siidorow.com> (https://siidorow.com)",
   "type": "module",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/ui.umd.cjs",
-  "module": "./dist/ui.js",
-  "types": "./dist/ui.d.ts",
   "exports": {
     ".": {
       "types": "./dist/ui.d.ts",
@@ -18,30 +16,29 @@
       "require": "./dist/ui.umd.cjs"
     }
   },
+  "main": "./dist/ui.umd.cjs",
+  "module": "./dist/ui.js",
+  "types": "./dist/ui.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && vite build && dts-bundle-generator -o ./dist/ui.d.ts ./lib/main.ts",
+    "build-storybook": "storybook build --disable-telemetry && touch ./storybook-static/.nojekyll",
+    "check": "tsc",
+    "deploy-storybook": "gh-pages -d storybook-static -t true",
+    "dev": "storybook dev -p 6006 --disable-telemetry",
+    "format": "prettier --write .",
+    "lint": "prettier --check . && eslint .",
+    "prepare": "husky install",
+    "semantic-release": "semantic-release",
+    "test": "vitest"
+  },
   "dependencies": {
     "@radix-ui/react-tabs": "1.0.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "tailwind-merge": "^1.14.0"
-  },
-  "peerDependencies": {
-    "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.21",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tailwindcss": "^3.2.4"
-  },
-  "scripts": {
-    "prepare": "husky install",
-    "dev": "storybook dev -p 6006 --disable-telemetry",
-    "build": "tsc && vite build && dts-bundle-generator -o ./dist/ui.d.ts ./lib/main.ts",
-    "build-storybook": "storybook build --disable-telemetry && touch ./storybook-static/.nojekyll",
-    "deploy-storybook": "gh-pages -d storybook-static -t true",
-    "check": "tsc",
-    "lint": "prettier --check . && eslint .",
-    "format": "prettier --write .",
-    "test": "vitest",
-    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
@@ -75,6 +72,7 @@
     "postcss": "^8.4.27",
     "prettier": "^3.0.0",
     "prettier-plugin-organize-imports": "^3.2.3",
+    "prettier-plugin-packagejson": "^2.4.5",
     "prettier-plugin-tailwindcss": "^0.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -85,11 +83,14 @@
     "vite": "^4.4.6",
     "vitest": "^0.33.0"
   },
+  "peerDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.2.4"
+  },
   "engines": {
     "node": "^16.14 || >=18.12"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Tietokilta/ui.git"
   }
 }
