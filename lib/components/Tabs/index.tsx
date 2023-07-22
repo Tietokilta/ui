@@ -26,4 +26,4 @@ const TabsTrigger = React.forwardRef<
 ));
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
-export { Tabs, TabsList, TabsContent, TabsTrigger };
+export { Tabs, TabsContent, TabsList, TabsTrigger };
