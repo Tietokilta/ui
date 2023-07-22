@@ -1,6 +1,8 @@
 # @tietokilta/ui
 
-Component library built in Tietokilta style, for use in React apps w/ tailwindcss
+Component library built in Tietokilta style, for use in React apps with TailwindCSS
+
+Design system [Figma](https://www.figma.com/file/eMVyR3hefnb9WvmZEkvgUf/TikUI?type=design&node-id=0-1), Documentation [Storybook](https://tietokilta.github.io/ui)
 
 ## Getting Started
 

@@ -1,0 +1,41 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Introduction" />
+
+# @tietokilta/ui
+
+Component library built in Tietokilta style, for use in React apps with TailwindCSS
+
+Design system [Figma](https://www.figma.com/file/eMVyR3hefnb9WvmZEkvgUf/TikUI?type=design&node-id=0-1), Source [GitHub](https://github.com/tietokilta/ui)
+
+## Installation
+
+1. Install @tietokilta/ui dependency (**Note:** not yet published to package managers!)
+
+```bash
+pnpm install @tietokilta/ui # or npm/yarn
+```
+
+2. Add template path to `tailwind.config.cjs` file:
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./node_modules/@tietokilta/ui/**/*.{js,cjs}"]
+  // ...
+};
+```
+
+## Usage
+
+```tsx
+import { Button } from "@tietokilta/ui";
+
+const App = () => (
+  <div>
+    <Button action="primary" destructive>
+      Tietokilta!
+    </Button>
+  </div>
+);
+```
