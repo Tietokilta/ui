@@ -1,11 +1,14 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./lib/**/*.{html,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        mono: ["Roboto Mono", "monospace"]
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
+        mono: ["Roboto Mono", ...defaultTheme.fontFamily.mono]
       },
       colors: {
         primary: {
@@ -75,9 +78,12 @@ module.exports = {
           100: "#fbf7e6"
         }
       },
-      boxShadow: {
-        solid: "2px 2px 0 #0a0d10"
-      }
+      boxShadow: ({ colors }) => ({
+        solid: `2px 2px 0 ${colors.gray[900]}`
+      }),
+      dropShadow: ({ colors }) => ({
+        solid: `4px 4px 0 ${colors.gray[900]}`
+      })
     }
   },
   plugins: []
